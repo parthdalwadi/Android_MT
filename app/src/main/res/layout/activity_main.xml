@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ddc"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Car Rent Service"
+        android:gravity="center"
+        android:textColor="#000"
+        android:textStyle="bold|italic"
+        android:textSize="25dp"
+        android:layout_margin="10dp"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/car_select"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:entries="@array/list_of_cars"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dailyRent"
+        android:editable="false"
+        android:hint="Daily Rent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How many days you want to rent"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rent_days"
+            android:text="#days"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="50dp" />
+
+    </LinearLayout>
+
+
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:id="@+id/no_of_days"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:max="10"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Driver's Age"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:id="@+id/age"
+        android:layout_marginRight="60dp">
+
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#050"
+            android:textStyle="bold"
+            android:onClick="calculateAmount"
+            android:id="@+id/rb1"
+            android:text="Less than 20"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#050"
+            android:textStyle="bold"
+            android:checked="true"
+            android:id="@+id/rb2"
+            android:onClick="calculateAmount"
+            android:text="Between 21 and 60"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#050"
+            android:textStyle="bold"
+            android:id="@+id/rb3"
+            android:onClick="calculateAmount"
+            android:text="Above 60"/>
+
+
+    </RadioGroup>
+
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Options"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:orientation="horizontal">
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GPS"
+        android:id="@+id/gps"
+        android:onClick="calculateAmount"
+        android:textColor="#050"
+        android:textStyle="bold"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Child Seat"
+        android:id="@+id/child"
+        android:textColor="#050"
+        android:onClick="calculateAmount"
+        android:textStyle="bold"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Unlimited millage"
+        android:textColor="#050"
+        android:id="@+id/unlimited"
+        android:onClick="calculateAmount"
+        android:textStyle="bold"/>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:id="@+id/amt"
+            android:text="Amount"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:id="@+id/totalAmt"
+            android:text="Total Payment"/>
+
+    </LinearLayout>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#900"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:onClick="showDetails"
+        android:text="View Details"/>
+
+
+
+
+
+
+</LinearLayout>
